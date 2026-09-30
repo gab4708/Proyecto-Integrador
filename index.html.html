@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedir ayuda es fortaleza | Filosofía</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+        :root {
+            --verde: #176b5b;
+            --verde-oscuro: #0d473d;
+            --verde-claro: #e9f6f1;
+            --azul-claro: #e8f4f8;
+            --azul-fuerte: #0056b3; 
+            --fondo: #f8f7f2;
+            --blanco: #ffffff;
+            --texto: #19322e;
+            --gris: #60716d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", Arial, sans-serif;
+            background: var(--fondo);
+            color: var(--texto);
+            line-height: 1.8;
+            font-size: 1.25rem; 
+        }
+
+        .contenedor {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           PORTADA
+        ========================= */
+
+        .portada {
+            min-height: 80vh;
+            display: grid;
+            align-items: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--verde-claro),
+                    #f8fbfa 55%,
+                    var(--azul-claro)
+                );
+            text-align: center;
+        }
+
+        .portada-contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 0;
+            max-width: 800px;
+        }
+
+        .etiqueta {
+            color: var(--verde);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem; 
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(3.5rem, 8vw, 7rem); 
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .portada p {
+            font-size: 1.4rem; 
+            color: var(--gris);
+            max-width: 700px;
+        }
+
+        .etiqueta-grupo {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 12px 20px;
+            border: 1px solid #176b5b35;
+            border-radius: 999px;
+            color: var(--verde-oscuro);
+            background: #ffffffaa;
+            font-size: 1.1rem; 
+            font-weight: 600;
+        }
+
+        /* =========================
+           INFORMACIÓN
+        ========================= */
+
+        .informacion {
+            background: var(--blanco);
+            padding: 28px 0;
+            border-bottom: 1px solid #dfe8e4;
+        }
+
+        .informacion-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #dfe8e4;
+        }
+
+        .dato {
+            background: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .dato span {
+            display: block;
+            color: var(--gris);
+            font-size: 0.9rem; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .dato strong {
+            font-size: 1.2rem; 
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .titulo-seccion {
+            color: var(--verde);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 0.9rem; 
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            line-height: 1.15;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* =========================
+           CUADROS DESTACADOS (AZUL Y VERDE)
+        ========================= */
+
+        .cuadro-azul {
+            background: var(--azul-fuerte); 
+            color: white;
+            border-radius: 30px;
+            padding: 70px 40px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 86, 179, 0.2);
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .cuadro-azul h2 {
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            color: white; 
+        }
+
+        .cuadro-azul::after {
+            content: "?";
+            position: absolute;
+            right: -10px;
+            bottom: -110px;
+            font-family: "Playfair Display", serif;
+            font-size: 22rem;
+            opacity: 0.1;
+        }
+
+        .cuadro-verde {
+            background: var(--verde); 
+            color: white;
+            border-radius: 30px;
+            padding: 60px 50px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(23, 107, 91, 0.2);
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        
+        .cuadro-verde h2 {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .cuadro-verde p {
+            color: white;
+            font-size: 1.35rem; 
+            margin-bottom: 20px;
+        }
+
+        .cuadro-verde p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           ARTÍCULOS Y TEXTOS 
+        ========================= */
+
+        .texto-centrado {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .texto-centrado p {
+            margin-bottom: 25px;
+            color: #435853;
+            font-size: 1.3rem; 
+        }
+
+        /* =========================
+           ARGUMENTOS
+        ========================= */
+
+        .argumentos {
+            background: var(--verde-claro);
+        }
+
+        .argumentos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .argumento {
+            background: white;
+            border-radius: 22px;
+            padding: 40px;
+            box-shadow: 0 10px 35px #124d3d12;
+            transition: transform 0.3s ease;
+        }
+
+        .argumento:hover {
+            transform: translateY(-7px);
+        }
+
+        .numero {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--verde);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .argumento h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem; 
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .argumento p {
+            color: var(--gris);
+            font-size: 1.15rem; 
+        }
+
+        /* =========================
+           BLOQUE APOYO
+        ========================= */
+
+        .bloque-apoyo {
+            background: white;
+        }
+
+        /* =========================
+           EJEMPLO
+        ========================= */
+
+        .cita {
+            border-left: 6px solid var(--azul-fuerte); 
+            padding-left: 30px;
+            font-size: 1.45rem; 
+            color: #435853;
+            font-style: italic;
+            text-align: left;
+            margin: 40px auto;
+            max-width: 750px;
+            background: #f4f9ff;
+            padding: 30px;
+            border-radius: 0 20px 20px 0;
+        }
+
+        /* =========================
+           CONCLUSIÓN
+        ========================= */
+
+        .conclusion {
+            background: linear-gradient(
+                135deg,
+                #e0f1ed,
+                #e8f4f8
+            );
+            border-radius: 30px;
+            padding: 80px 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .conclusion p {
+            font-size: 1.35rem; 
+            color: #435853;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           REFERENCIAS
+        ========================= */
+
+        .referencias {
+            background: white;
+        }
+
+        .referencias-caja {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .referencias ol {
+            padding-left: 30px;
+            color: var(--gris);
+            font-size: 1.15rem; 
+        }
+
+        .referencias li {
+            margin-bottom: 18px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--verde-oscuro);
+            color: #dcece8;
+            padding: 45px 0;
+            text-align: center;
+            font-size: 1.1rem; 
+        }
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .informacion-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .argumentos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .cuadro-azul,
+            .cuadro-verde,
+            .conclusion {
+                padding: 45px 25px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .informacion-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     PORTADA
+====================================================== -->
+
+<header class="portada">
+
+    <div class="contenedor portada-contenido">
+
+        <div class="etiqueta">
+            Filosofía · Salud mental
+        </div>
+
+        <h1>
+            Pedir ayuda es una forma de fortaleza
+        </h1>
+
+        <p>
+            Reconocer lo que sientes, buscar apoyo y cuidar
+            tu bienestar también requiere valentía.
+        </p>
+
+        <div class="etiqueta-grupo">
+            Pregunta filosófica · Grupo 2
+        </div>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+     INFORMACIÓN
+====================================================== -->
+
+<div class="informacion">
+
+    <div class="contenedor informacion-grid">
+
+        <div class="dato">
+            <span>Nombres</span>
+            <strong>
+                Flores Gabriel, Gallardo Sebastian,
+                Herrera Byron, Sánchez Nayelhy,
+                Sánchez Sebastian
+            </strong>
+        </div>
+
+        <div class="dato">
+            <span>Curso</span>
+            <strong>2 BGU “C”</strong>
+        </div>
+
+        <div class="dato">
+            <span>Materia</span>
+            <strong>Filosofía</strong>
+        </div>
+
+        <div class="dato">
+            <span>Grupo</span>
+            <strong>2</strong>
+        </div>
+
+    </div>
+
+</div>
+
+<main>
+
+<!-- =====================================================
+     PREGUNTA FILOSÓFICA (CUADRO AZUL)
+====================================================== -->
+
+<section>
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+            La pregunta filosófica
+        </div>
+
+        <div class="cuadro-azul">
+            <h2>
+                ¿Pedir ayuda cuando te sientes mal es una
+                muestra de debilidad o de fortaleza?
+            </h2>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     TESIS
+====================================================== -->
+
+<section>
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+            Tesis
+        </div>
+
+        <h2>
+            Reconocer lo que sientes también es valentía.
+        </h2>
+
+        <div class="texto-centrado">
+            <p>
+                Durante la adolescencia pueden experimentar
+                muchos cambios emocionales y sociales.
+                Algunas situaciones escolares, familiares o
+                personales pueden hacer que se sientan
+                preocupados, tristes, estresados o confundidos.
+            </p>
+
+            <p>
+                Pedir ayuda no significa que sean incapaces.
+                Al contrario, significa que pueden identificar
+                cuándo una situación les está afectando y tomar
+                la decisión de buscar apoyo.
+            </p>
+
+            <p>
+                Pueden acercarse a un familiar, amigo,
+                profesor, tutor u orientador de confianza.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     ARGUMENTOS
+====================================================== -->
+
+<section class="argumentos">
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+            Argumentos
+        </div>
+
+        <h2>
+            Tres razones para pedir ayuda
+        </h2>
+
+        <div class="argumentos-grid">
+
+            <article class="argumento">
+                <div class="numero">01</div>
+                <h3>Reconocer lo que sienten</h3>
+                <p>
+                    Para pedir ayuda primero necesitan reconocer
+                    que algo les está afectando. Decir que no se
+                    sienten bien no los hace débiles. Les permite
+                    entender mejor sus emociones y pensar en qué
+                    pueden hacer para sentirse mejor.
+                </p>
+            </article>
+
+            <article class="argumento">
+                <div class="numero">02</div>
+                <h3>Buscar apoyo</h3>
+                <p>
+                    Pedir ayuda demuestra madurez y confianza.
+                    Es un signo de fortaleza, no de debilidad.
+                    Todos necesitan ayuda alguna vez y aceptar
+                    apoyo puede fortalecer las relaciones.
+                </p>
+            </article>
+
+            <article class="argumento">
+                <div class="numero">03</div>
+                <h3>Cuidar su bienestar</h3>
+                <p>
+                    Su bienestar emocional es importante.
+                    Si una preocupación continúa durante un
+                    tiempo y empieza a afectar sus actividades
+                    diarias, es recomendable buscar apoyo.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     APOYO Y EMPATÍA
+====================================================== -->
+
+<section class="bloque-apoyo">
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+            Apoyo y empatía
+        </div>
+
+        <h2>
+            Escuchar también es una forma de ayudar.
+        </h2>
+
+        <div class="texto-centrado">
+            <p>
+                También es importante que aprendan a escuchar
+                a los demás. Si una persona les cuenta que está
+                pasando por un momento difícil, pueden demostrar
+                empatía, escuchar sin burlarse y animarla a
+                hablar con alguien que pueda ayudarla.
+            </p>
+
+            <p>
+                Cuando hablan con una persona de confianza
+                sobre lo que les preocupa, pueden sentirse
+                acompañados y comprendidos.
+            </p>
+
+            <p>
+                Esa persona puede escucharlos, darles otra
+                perspectiva y ayudarlos a encontrar una manera
+                adecuada de afrontar la situación.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     EJEMPLO
+====================================================== -->
+
+<section>
+
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+            Ejemplo
+        </div>
+
+        <h2>
+            No tienen que afrontar todo solos.
+        </h2>
+
+        <div class="cita">
+            Imaginen que tienen problemas con sus compañeros
+            y eso empieza a hacerlos sentir muy preocupados.
+            En lugar de guardar todo para ustedes, pueden hablar
+            con un profesor o con un familiar.
+        </div>
+
+        <div class="texto-centrado">
+            <p style="color:#60716d">
+                Al hacerlo, están reconociendo lo que sienten
+                y buscando una forma de solucionar la situación.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     REFLEXIÓN PREVIA A CONCLUSIÓN (CUADRO VERDE)
+====================================================== -->
+
+<section>
+    <div class="contenedor">
+        <div class="cuadro-verde">
+            <h2>Reflexión</h2>
+            <p>
+                Si alguna vez se sienten sobrepasados por una situación, recuerden que no
+                tienen que resolverlo todo solos. Pueden buscar a una persona en quien confíen y
+                explicar cómo se sienten. También pueden escuchar y apoyar a otras personas
+                cuando necesiten hablar.
+            </p>
+            <p>
+                La empatía es importante porque permite comprender que cada persona vive sus
+                dificultades de una manera diferente. Escuchar sin juzgar y ofrecer apoyo puede
+                ayudarlos a crear un ambiente donde sea más fácil hablar de las emociones.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     CONCLUSIÓN
+====================================================== -->
+
+<section>
+
+    <div class="contenedor">
+
+        <div class="conclusion">
+            
+            <div class="titulo-seccion">
+                Conclusión
+            </div>
+
+            <h2>
+                Buscar apoyo demuestra fortaleza.
+            </h2>
+
+            <p>
+                En conclusión, pedir ayuda cuando se sienten
+                mal no significa ser débiles, sino reconocer
+                que están pasando por una situación difícil
+                y que necesitan apoyo.
+            </p>
+
+            <p>
+                Todos pueden tener problemas en algún momento,
+                ya sea en la casa, en el colegio o con sus
+                amigos, y no siempre pueden resolverlos solos.
+            </p>
+
+            <p>
+                Hablar con alguien de confianza les puede ayudar
+                a expresar lo que sienten, sentirse escuchados
+                y buscar una solución.
+            </p>
+
+            <p>
+                Por eso, tener el valor de pedir ayuda demuestra
+                fortaleza, valentía y confianza, y también
+                demuestra que quieren cuidar de sí mismos
+                y seguir adelante.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     REFERENCIAS
+====================================================== -->
+
+<section class="referencias">
+
+    <div class="contenedor referencias-caja">
+
+        <div class="titulo-seccion">
+            Fuentes
+        </div>
+
+        <h2>
+            Referencias
+        </h2>
+
+        <ol>
+            <li>
+                Ecuador, U. (23 de 09 de 2026).
+                <em>#EnMiMente: La salud mental importa.</em>
+            </li>
+            <li>
+                Kurland, B. (23 de 09 de 2026).
+                <em>Greater Good Magazine.</em>
+                Obtenido de Greater Good Magazine.
+            </li>
+            <li>
+                S/N. (23 de 09 de 2026).
+                <em>KidsHealth.</em>
+            </li>
+            <li>
+                Salud., O. M. (09 de 2005).
+                <em>La salud mental de los jóvenes.</em>
+            </li>
+            <li>
+                Salud., O. M. (28 de 09 de 2020).
+                <em>
+                    Guidelines on mental health promotive
+                    and preventive.
+                </em>
+            </li>
+        </ol>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     PIE DE PÁGINA
+====================================================== -->
+
+<footer>
+    <div class="contenedor">
+        Proyecto de Filosofía · 2 BGU “C” · Grupo 2
+    </div>
+</footer>
+
+</body>
+</html>
